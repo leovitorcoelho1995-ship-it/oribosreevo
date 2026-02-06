@@ -1,4 +1,5 @@
 FROM python:3.9-slim
+ENV REFRESHED_AT=2024-02-06_0300
 
 WORKDIR /app
 
