@@ -1,7 +1,7 @@
 import requests
 import datetime
 import os
-from .config import YOUTUBE_API_KEY
+from config import YOUTUBE_API_KEY
 
 def fetch_youtube_trends(region='US', limit=100):
     if not YOUTUBE_API_KEY:

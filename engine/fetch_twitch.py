@@ -1,6 +1,6 @@
 import requests
 import datetime
-from .config import TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET
+from config import TWITCH_CLIENT_ID, TWITCH_CLIENT_SECRET
 
 def get_twitch_access_token():
     if not TWITCH_CLIENT_ID or not TWITCH_CLIENT_SECRET:

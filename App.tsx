@@ -459,7 +459,7 @@ const App: React.FC = () => {
                     {filteredVideos.filter(v => v.platform === Platform.YOUTUBE).map(video => (
                       <VideoCard key={video.id} video={video} view={view as any} onApprove={handleApprove} onDelete={handleDelete} onUpdateStatus={handleUpdateStatus} />
                     ))}
-                    {filteredVideos.filter(v => v.platform === Platform.YOUTUBE).length >= ytLimit && (
+                    {filteredVideos.filter(v => v.platform === Platform.YOUTUBE).length > 0 && (
                       <div className="flex justify-center pt-4">
                         <button
                           onClick={handleYtLimitIncrease}
@@ -494,7 +494,7 @@ const App: React.FC = () => {
                     {filteredVideos.filter(v => v.platform === Platform.TWITCH).map(video => (
                       <VideoCard key={video.id} video={video} view={view as any} onApprove={handleApprove} onDelete={handleDelete} onUpdateStatus={handleUpdateStatus} />
                     ))}
-                    {filteredVideos.filter(v => v.platform === Platform.TWITCH).length >= twLimit && (
+                    {filteredVideos.filter(v => v.platform === Platform.TWITCH).length > 0 && (
                       <div className="flex justify-center pt-4">
                         <button
                           onClick={handleTwLimitIncrease}
