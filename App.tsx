@@ -12,6 +12,7 @@ import VideoCard from './components/VideoCard';
 import ShortsTable from './components/ShortsTable';
 import Auth from './components/Auth';
 import TrendsView from './components/TrendsView';
+import { ImportView } from './components/ImportView';
 import { geminiService } from './services/geminiService';
 import { supabase } from './services/supabaseClient';
 import { Inbox, Database, Youtube, Wand2, TrendingUp } from 'lucide-react';
@@ -418,6 +419,10 @@ const App: React.FC = () => {
 
     if (view === 'TRENDS') {
       return <TrendsView />;
+    }
+
+    if (view === 'IMPORT') {
+      return <ImportView />;
     }
 
     return (
