@@ -1,0 +1,8 @@
+{
+  "name": "Oribos OS v2.0 - Video Triage & Shorts Manager",
+  "description": "A high-performance operational dashboard for video analysis, triage, and shorts management powered by Gemini AI for creative editing.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ]
+}
