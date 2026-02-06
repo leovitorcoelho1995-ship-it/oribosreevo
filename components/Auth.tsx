@@ -153,24 +153,24 @@ const Auth: React.FC<AuthProps> = ({ onLogin }) => {
               {isLoading ? 'Processando...' : (isRegistering ? 'Cadastrar Agora' : 'Entrar no Sistema')}
             </button>
 
-            <button
+            {/* <button
               type="button"
               onClick={handleDemoAccess}
               className="w-full py-3 bg-white/5 border border-white/10 text-gray-300 rounded-lg font-medium text-sm hover:bg-white/10 transition-all"
             >
               Acesso Demo
-            </button>
+            </button> */}
           </div>
         </form>
 
-        <div className="mt-6 text-center">
+        {/* <div className="mt-6 text-center">
           <button
             onClick={() => setIsRegistering(!isRegistering)}
             className="text-gray-400 hover:text-orange-400 text-xs transition-colors"
           >
             {isRegistering ? 'Já tem uma conta? Faça login' : 'Não tem conta? Registre-se aqui'}
           </button>
-        </div>
+        </div> */}
       </div>
     </div>
   );
