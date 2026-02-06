@@ -2,10 +2,10 @@ import os
 import requests
 import json
 import datetime
-from .config import SUPABASE_URL, SUPABASE_KEY
-from .fetch_google import fetch_google_trends
-from .fetch_twitch import fetch_twitch_trends
-from .fetch_youtube import fetch_youtube_trends
+from config import SUPABASE_URL, SUPABASE_KEY
+from fetch_google import fetch_google_trends
+from fetch_twitch import fetch_twitch_trends
+from fetch_youtube import fetch_youtube_trends
 
 def save_trends(trends: list, platform: str):
     if not trends:
