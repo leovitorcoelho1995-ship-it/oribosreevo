@@ -13,6 +13,7 @@ import ShortsTable from './components/ShortsTable';
 import Auth from './components/Auth';
 import TrendsView from './components/TrendsView';
 import { ImportView } from './components/ImportView';
+import Toast from './components/Toast'; // Added Toast import
 import { geminiService } from './services/geminiService';
 import { supabase } from './services/supabaseClient';
 import { Inbox, Database, Youtube, Wand2, TrendingUp } from 'lucide-react';
@@ -23,6 +24,9 @@ const App: React.FC = () => {
   const [videos, setVideos] = useState<Video[]>(INITIAL_VIDEOS);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+
+  // Toast State
+  const [toast, setToast] = useState<{ message: string; type: 'success' | 'error' | 'info' } | null>(null);
 
   // Filtros
   const [search, setSearch] = useState('');
@@ -247,8 +251,9 @@ const App: React.FC = () => {
         await supabase.from('repository').update({ status: 'approved' }).eq('id', id);
       }
       setVideos(prev => prev.map(v => v.id === id ? { ...v, isApproved: true } : v));
+      setToast({ message: "Vídeo salvo no repositório com sucesso!", type: 'success' }); // Added success toast
     } catch (e: any) {
-      alert("Erro ao aprovar vídeo: " + e.message);
+      setToast({ message: "Erro ao aprovar vídeo: " + e.message, type: 'error' }); // Added error toast
     }
   };
 
@@ -263,7 +268,7 @@ const App: React.FC = () => {
       await supabase.from('repository').delete().eq('id', id);
       setVideos(prev => prev.filter(v => v.id !== id));
     } catch (e) {
-      alert("Erro ao excluir vídeo.");
+      setToast({ message: "Erro ao excluir vídeo.", type: 'error' }); // Added error toast
     }
   };
 
@@ -561,6 +566,15 @@ const App: React.FC = () => {
 
         {/* Mobile Bottom Menu */}
         <BottomMenu currentView={view} setView={setView} onLogout={handleLogout} />
+
+        {/* Toast Notification */}
+        {toast && (
+          <Toast
+            message={toast.message}
+            type={toast.type}
+            onClose={() => setToast(null)}
+          />
+        )}
       </main>
     </div>
   );
